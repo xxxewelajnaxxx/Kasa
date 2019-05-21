@@ -1,0 +1,35 @@
+import java.util.List;
+
+public class Paragon {
+
+	private List<Produkt> produkty;
+
+	public Paragon(List<Produkt> produkty) {
+		super();
+		this.produkty = produkty;
+	}
+	
+	public void dodaj(Produkt produkt) {
+		produkty.add(produkt);
+	}
+	
+	public void usun(int numer) {
+		produkty.remove(numer);
+	}
+	
+	public double getTotal() {
+		double total= 0;
+		for(Produkt p : produkty) {
+			total+=p.getCenaCalkowita();
+		}
+		return total;
+	}
+	
+	public void drukuj() {
+		for(Produkt p : produkty) {
+			System.out.println(p);
+		}
+		System.out.printf("Do zaplaty: %.2fzł\n", getTotal());
+	}
+}
+
